@@ -1,5 +1,9 @@
 const link="https://randomuser.me/api/"
-fetch(link).then(r=>r.json()).then(fetch=>{
+fetch(link).then(res=>{
+    if(res.ok) return res.json()
+    else {
+    console.log("Error:",res.status)
+    })).then(fetch=>{
     // fetch=fetch["results"]
     document.write(`<h1 style="background-color: orange; padding : 10px; margin :50px; text-align: center;"> TITLE WITH NAME => LIVING PLACE => GENDER => EMAIL ADDRESS => AGE => CONTACT  </h1>`)
     for(i of fetch["results"]){
